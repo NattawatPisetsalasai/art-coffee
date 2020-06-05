@@ -1,0 +1,166 @@
+tags:
+  name: "address"
+  description: manage all activity of customer and restuarant to address
+
+path:
+  /customer/address/fetch:
+    get:
+      summary: get all address of customer
+      tags: [address]
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: array of address customer
+
+  /customer/address/insert:
+    post:
+      summary: insert address
+      tags: [address]
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "บ้านหิว"
+                addressLine:
+                  type: string
+                  example: "758/60 ซอย รัตนาธิเบศร์ 36 โครงการเซล รัตนาธิเบศร์2 ตึก A ชั้น7"
+                province:
+                  type: string
+                  example: "นนทบุรี"
+                district:
+                  type: string
+                  example: "รัตนาธิเบศร์"
+                subDistrict:
+                  type: string
+                  example: "รัตนาธิเบศร์"
+                postalCode:
+                  type: string
+                  example: "11000"
+                latitude:
+                  type: number
+                  example: 10.123456
+                longitude:
+                  type: number
+                  example: 10.123456
+                comment:
+                  type: string
+                  example: "ก็บ้านอะ"
+                isDefault:
+                  type: boolean
+                  example: true
+      responses:
+        200:
+          description: new address add
+
+  /customer/address/delete:
+    delete:
+      summary: insert delete
+      tags: [address]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: addressId
+          in: query
+          schema:
+            type: number
+            example: 1
+          required: true
+      responses:
+        200:
+          description: deleted addrss
+
+  /customer/address/edit:
+    patch:
+      summary: insert address
+      tags: [address]
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                addressId:
+                  type: number
+                  example: 1
+                name:
+                  type: string
+                  example: "บ้านหิว"
+                addressLine:
+                  type: string
+                  example: "758/60 ซอย รัตนาธิเบศร์ 36 โครงการเซล รัตนาธิเบศร์2 ตึก A ชั้น7"
+                province:
+                  type: string
+                  example: "นนทบุรี"
+                district:
+                  type: string
+                  example: "รัตนาธิเบศร์"
+                subDistrict:
+                  type: string
+                  example: "รัตนาธิเบศร์"
+                postalCode:
+                  type: string
+                  example: "11000"
+                latitude:
+                  type: number
+                  example: 10.123456
+                longitude:
+                  type: number
+                  example: 10.123456
+                comment:
+                  type: string
+                  example: "ก็บ้านอะ"
+                isDefault:
+                  type: boolean
+                  example: true
+      responses:
+        200:
+          description: new address add
+
+  /customer/address/setDefault:
+    patch:
+      summary: insert delete
+      tags: [address]
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                addressId:
+                  type: number
+                  example: 1
+      responses:
+        200:
+          description: deleted address
+
+  /customer/address/getDeliveryCostByAddress:
+    get:
+      summary: Get delivery cost by send address (latitude and longitude)
+      tags: [address]
+      parameters:
+        - name: latitude
+          in: query
+          schema:
+            type: number
+            example: 10.123456
+          required: true
+        - name: longitude
+          in: query
+          schema:
+            type: number
+            example: 10.123456
+          required: true
+      responses:
+        200:
+          description: array of recommend products

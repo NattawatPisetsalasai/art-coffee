@@ -1,0 +1,193 @@
+tags:
+  name: "order"
+  description: Manage all activity with order
+
+path:
+  /customer/order/getActiveOrder:
+    get:
+      summary: Get all active order
+      tags: [order]
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: array of history order
+
+  /customer/order/getChangedActiveOrder:
+    get:
+      summary: Get new order and chnaged status
+      tags: [order]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: currentTimestamp
+          in: query
+          schema:
+            type: string
+            example: "2020-04-28 13:10:25"
+          required: true
+      responses:
+        200:
+          description: send new order and changed status
+
+  /customer/order/getOrderHistory:
+    get:
+      summary: Get all history of order by pagination
+      tags: [order]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: number
+            example: 0
+          required: true
+        - name: pageSize
+          in: query
+          schema:
+            type: number
+            example: 6
+          required: true
+      responses:
+        200:
+          description: array of history order
+
+  /customer/order/createOrder:
+    post:
+      summary: create order
+      tags: [order]
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                shippingAddressId:
+                  type: number
+                  example: 1
+                branchId:
+                  type: number
+                  example: 2
+                isPickup:
+                  type: boolean
+                  example: true
+                pickupAppointTime:
+                  type: string
+                  example: "2020-04-28 13:10:25"
+                products:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      productId:
+                        type: number
+                        example: 42
+                      amount:
+                        type: number
+                        example: 2
+                      comment:
+                        type: string
+                        example: ""
+                      options:
+                        type: object
+                        properties:
+                          6:
+                            type: array
+                            items:
+                              type: number
+                              example: 27
+      responses:
+        200:
+          description: send all information of successful order
+
+  /customer/order/changeOrderStatus:
+    post:
+      summary: insert new status to status order history
+      tags: [order]
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderId:
+                  type: number
+                  example: 1
+                nextStatusId:
+                  type: number
+                  example: 2
+      responses:
+        200:
+          description: send all information of successful order
+
+  /customer/order/uploadOrderSlip:
+    post:
+      summary: upload slip order
+      tags: [order]
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                slip:
+                  type: string
+                  format: binary
+                orderId:
+                  type: number
+                  example: 1
+      responses:
+        200:
+          description: upload slip successfully
+
+  /restaurant/order/getOrderAllStage:
+    get:
+      summary: get all order of user by stage
+      tags: [order]
+      responses:
+        200:
+          description: send all order of user in stage
+
+  /restaurant/order/getChangedOrderAllStage:
+    get:
+      summary: Get new order and chnaged status of restaurant
+      tags: [order]
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: currentTimestamp
+          in: query
+          schema:
+            type: string
+            example: "2020-04-28 13:10:25"
+          required: true
+      responses:
+        200:
+          description: send new order and changed status
+
+  /restaurant/order/changeOrderStatus:
+    post:
+      summary: insert new status to status order history
+      tags: [order]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderId:
+                  type: number
+                  example: 1
+                nextStatusId:
+                  type: number
+                  example: 2
+      responses:
+        200:
+          description: send all information of successful order

@@ -1,0 +1,50 @@
+tags:
+  name: "auth"
+  description: Manage all activity with authentication
+
+path:
+  /auth/login/email:
+    post:
+      summary: Login with email
+      tags: [auth]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: test_email_1@playtorium.co.th
+                password:
+                  type: string
+                  example: fastfood
+      responses:
+        200:
+          description: send accesstoken and refreshtoken
+
+  /auth/login/google:
+    get:
+      summary: Login with google
+      tags: [auth]
+      responses:
+        200:
+          description: send accesstoken and refreshtoken
+
+  /auth/login/facebook:
+    get:
+      summary: Login with facebook
+      tags: [auth]
+      responses:
+        200:
+          description: send accesstoken and refreshtoken
+
+  /auth/login/getAccessByRefresh:
+    get:
+      summary: Get access token by refresh token
+      tags: [auth]
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: send new acces token

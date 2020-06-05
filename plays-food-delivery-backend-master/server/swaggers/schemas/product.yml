@@ -1,0 +1,33 @@
+components:
+  schemas:
+    user:
+      type: object
+      properties:
+        user_id:
+          type: number
+        username:
+          type: string
+        password:
+          type: string
+          description: hash value generate from user password input
+        email:
+          type: string
+          format: email
+        firstname:
+          type: string
+        lastname:
+          type: string
+        phone:
+          type: string
+        active:
+          type: boolean
+          description: flag for user avaliable
+      example:
+        userId: 1
+        username: username_1
+        password: 9bdf468730c724906f127cd32225aca243ecc57fd1b99b0edb8e19c27a00d263
+        email: test_email_1@playtorium.co.th
+        firstname: firstname_1
+        lastname: lastname_1
+        phone: 0891234567
+        active: true

@@ -1,0 +1,35 @@
+tags:
+  name: "customer"
+  description: manage all activity of customer
+
+path:
+  /customer/user/editProfile:
+    patch:
+      summary: edit customer information
+      tags: [customer]
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: "vathunyoo_uraisakun"
+                password:
+                  type: string
+                  example: "testing"
+                firstname:
+                  type: string
+                  example: "vathunyoo"
+                lastname:
+                  type: string
+                  example: "uraisakun"
+                phone:
+                  type: string
+                  example: "0812345678"
+      responses:
+        200:
+          description: array of address customer

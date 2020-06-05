@@ -1,0 +1,19 @@
+components:
+  schemas:
+    auth:
+      type: object
+      properties:
+        accesstoken(Local):
+          type: string
+          description: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWQiOjEsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTU4OTM1ODYyMywiZXhwIjoxNjc1NzU4NjIzfQ.MVxJ7b3lq20Pm5jM8wvbYLMlb1BJV_XRy6XHiX27ClU
+        refreshtoken(Local):
+          type: string
+          description: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoicmVmcmVzaCIsImlkIjoxLCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE1ODk4NjQ0NzYsImV4cCI6MTY3NjI2NDQ3Nn0.9DG3gf9dVqbDEh7w-eeM6S7s2Mkg2tWO6FYxqZn0oqo
+        accesstoken(Server):
+          type: string
+          description: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWQiOjEsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTU4OTg2NDkyNCwiZXhwIjoxNjc2MjY0OTI0fQ.bKuTfuSto8TWwJNI_1MsPBwahjaAZWkTuPdH7GWv2wc
+        refreshtoken(Server):
+          type: string
+          description: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoicmVmcmVzaCIsImlkIjoxLCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE1ODk4NjQ3NzksImV4cCI6MTY3NjI2NDc3OX0.fnbpNGOZuKZG3uoKz8FwjAsLmD08KGpkEqCeOC3QbIQ
+      example:
+        auth: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWQiOjEsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTU4OTM1ODYyMywiZXhwIjoxNjc1NzU4NjIzfQ.MVxJ7b3lq20Pm5jM8wvbYLMlb1BJV_XRy6XHiX27ClU

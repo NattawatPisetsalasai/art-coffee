@@ -1,0 +1,82 @@
+tags:
+  name: "product"
+  description: manage all activity in user
+
+path:
+  /customer/product/getRecommendProduct:
+    get:
+      summary: Get recommended product
+      tags: [product]
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: number
+            example: 0
+          required: true
+        - name: pageSize
+          in: query
+          schema:
+            type: number
+            example: 6
+          required: true
+      responses:
+        200:
+          description: array of recommend products
+
+  /customer/product/getAllCategory:
+    get:
+      summary: Get all category of product
+      tags: [product]
+      parameters:
+        - name: pageSize
+          in: query
+          schema:
+            type: number
+            example: 6
+          required: true
+      responses:
+        200:
+          description: array of category
+
+  /customer/product/getProductByCategory:
+    get:
+      summary: Get all product in category id
+      tags: [product]
+      parameters:
+        - name: categoryId
+          in: query
+          schema:
+            type: number
+            example: 1
+          required: true
+        - name: page
+          in: query
+          schema:
+            type: number
+            example: 0
+          required: true
+        - name: pageSize
+          in: query
+          schema:
+            type: number
+            example: 6
+          required: true
+      responses:
+        200:
+          description: array of recommend products
+
+  /customer/product/getProductDetail:
+    get:
+      summary: Get all detail of product (option, choice, detail)
+      tags: [product]
+      parameters:
+        - name: productId
+          in: query
+          schema:
+            type: number
+            example: 1
+          required: true
+      responses:
+        200:
+          description: object of product detail
